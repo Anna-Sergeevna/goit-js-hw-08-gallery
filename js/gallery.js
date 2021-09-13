@@ -1,11 +1,13 @@
 import galleryItems from './app.js';
 
 const list = document.querySelector('.js-gallery');
-console.log(list);
+// console.log(list);
 const modal = document.querySelector('.js-lightbox');
-console.log(modal);
+// console.log(modal);
 const imgModal = document.querySelector('.lightbox__image');
-console.log(imgModal);
+// console.log(imgModal);
+const modalClose = document.querySelector('.lightbox__button');
+// console.log(modalClose);
 
 
 const imagesList = galleryItems.map(({ preview, original, description } = el) => {
@@ -44,3 +46,11 @@ function onModalOpen(e) {
   }
 }
 
+/ Закрытие модалки /
+
+modalClose.addEventListener('click', onModalClose);
+
+function onModalClose(e) {
+  imgModal.src = '';
+  modal.classList.remove('is-open');
+}
